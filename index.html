@@ -5,41 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Temu</title>
   <style>
-    /* 页面整体无滚动条、无边距 */
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
-      overflow: hidden;
+      /* ⚠️ 不要写 overflow:hidden，否则上下滚动会被禁用 */
     }
 
-    /* iframe 自适应全屏 */
     iframe {
       width: 100%;
-      height: 100%;
+      height: 100vh;  /* 一屏高，自己带滚动条 */
       border: none;
       display: block;
-    }
 
-    /* 可选：iframe外层容器，方便控制布局 */
-    .iframe-container {
-      position: relative;
-      width: 100%;
-      height: 100vh;
+      /* 移动端惯性滚动支持 */
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
     }
   </style>
 </head>
 <body>
-  <div class="iframe-container">
-    <!-- 将 https://b.com 替换为你要嵌入的网站地址 -->
-    <iframe 
-      src="https://lccc336.github.io" 
-      title="B 网站"
-      allowfullscreen
-      loading="lazy"
-      sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-    >
-    </iframe>
-  </div>
+  <iframe 
+    src="https://lccc336.github.io" 
+    title="B 网站"
+    allowfullscreen
+    loading="lazy"
+    sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+  ></iframe>
 </body>
 </html>
